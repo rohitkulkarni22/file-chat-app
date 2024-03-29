@@ -87,6 +87,7 @@ def handle_user_input(user_question):
 
 # Define routes
 
+# upload pdf route
 @app.post("/upload/")
 async def upload_pdf(file: UploadFile = File(...)):
     # Validate file type
@@ -113,7 +114,7 @@ async def upload_pdf(file: UploadFile = File(...)):
     except Exception as e:
         raise HTTPException(status_code=500, detail="Failed to process PDF: " + str(e))
     
-    
+# process question route
 @app.post("/process/")
 async def process_question(question_payload: dict):
     try:
