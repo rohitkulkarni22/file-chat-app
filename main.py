@@ -115,6 +115,8 @@ async def upload_pdf(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail="Failed to process PDF: " + str(e))
     
 # process question route
+
+# route for chatting with the pdf
 @app.post("/process/")
 async def process_question(question_payload: dict):
     try:
